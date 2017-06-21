@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F72CD3291EF3E27300A261B9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72CD3281EF3E27300A261B9 /* CoreBluetooth.framework */; };
 		F7B93F8E1EF3C68B000A83A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B93F8D1EF3C68B000A83A9 /* AppDelegate.swift */; };
 		F7B93F901EF3C68B000A83A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B93F8F1EF3C68B000A83A9 /* ViewController.swift */; };
 		F7B93F931EF3C68B000A83A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B93F911EF3C68B000A83A9 /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F72CD3281EF3E27300A261B9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		F72CD32A1EF4082D00A261B9 /* Prueba.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prueba.entitlements; sourceTree = "<group>"; };
 		F7B93F8A1EF3C68B000A83A9 /* Prueba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prueba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B93F8D1EF3C68B000A83A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B93F8F1EF3C68B000A83A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72CD3291EF3E27300A261B9 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F72CD3271EF3E27300A261B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F72CD3281EF3E27300A261B9 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F7B93F811EF3C68B000A83A9 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +93,7 @@
 				F7B93FA11EF3C68B000A83A9 /* PruebaTests */,
 				F7B93FAC1EF3C68B000A83A9 /* PruebaUITests */,
 				F7B93F8B1EF3C68B000A83A9 /* Products */,
+				F72CD3271EF3E27300A261B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +110,7 @@
 		F7B93F8C1EF3C68B000A83A9 /* Prueba */ = {
 			isa = PBXGroup;
 			children = (
+				F72CD32A1EF4082D00A261B9 /* Prueba.entitlements */,
 				F7B93F8D1EF3C68B000A83A9 /* AppDelegate.swift */,
 				F7B93F8F1EF3C68B000A83A9 /* ViewController.swift */,
 				F7B93F911EF3C68B000A83A9 /* Main.storyboard */,
@@ -193,7 +207,13 @@
 				TargetAttributes = {
 					F7B93F891EF3C68B000A83A9 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9656LCUXLS;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
 					};
 					F7B93F9D1EF3C68B000A83A9 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -414,10 +434,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9656LCUXLS;
 				INFOPLIST_FILE = Prueba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mhp.Prueba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -426,10 +449,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9656LCUXLS;
 				INFOPLIST_FILE = Prueba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mhp.Prueba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -507,6 +533,7 @@
 				F7B93FB41EF3C68B000A83A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7B93FB51EF3C68B000A83A9 /* Build configuration list for PBXNativeTarget "PruebaTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +542,7 @@
 				F7B93FB71EF3C68B000A83A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7B93FB81EF3C68B000A83A9 /* Build configuration list for PBXNativeTarget "PruebaUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +551,7 @@
 				F7B93FBA1EF3C68B000A83A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
