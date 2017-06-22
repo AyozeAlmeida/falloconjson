@@ -8,17 +8,25 @@
 
 import UIKit
 import CoreBluetooth
+import SystemConfiguration
+
 
 class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDelegate, UITableViewDataSource, UITableViewDelegate{
     var dispositivos: [String] = []
    var manager: CBCentralManager!
     var peripheral:CBPeripheral!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buttonFront: UIButton!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+     var balizas: [Baliza] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         manager = CBCentralManager (delegate: self, queue: nil)
-        dispositivos = ["dispositivo1", "dispositivo2", "dispositivo3", "dispositivo4"]
+       
+        buttonFront.addTarget(self, action: #selector(ViewController.but(sender:)), for: .touchUpInside)
         
         
         
@@ -30,20 +38,51 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
     }
 
     
- 
-    func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
-    {
-        return dispositivos.count
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
+        tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell:UITableViewCell=UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text  = dispositivos[indexPath.row]
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return balizas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        let baliza = balizas[indexPath.row]
+        
+        if let myName = baliza.uuid {
+            cell.textLabel?.text = myName
+        }
         
         return cell
     }
 
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath:       IndexPath) {
+        
+        print("You selected cell number: \(indexPath.row)!");
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let miVistaDos = storyBoard.instantiateViewController(withIdentifier: "ViewControllerWebService") as! ViewControllerWebService
+        
+        self.present(miVistaDos, animated:true, completion:nil)
+        
+        
+    }
+    func getData() {
+        do {
+            balizas = try context.fetch(Baliza.fetchRequest())
+        }
+        catch {
+            print("Fetching Failed")
+        }
+    }
+    
+    
+    
+    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == CBManagerState.poweredOn{
             central.scanForPeripherals(withServices: nil, options: nil)
@@ -122,10 +161,60 @@ func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CB
         if var _ :NSData = characteristic.value as NSData? {
             peripheral.readValue(for: characteristic)
             print (characteristic)
+          manager.cancelPeripheralConnection(peripheral)
+            print("este es el uptime ",self.systemUptime())
+            
+           print("UTC",Date().currentUTCTimeZoneDate)
+            
+    
+           let buf = [UInt8](Date().currentUTCTimeZoneDate.utf8)
+      print(buf)
         }
     
     }
-
-
+    
+    func but(sender:AnyObject?){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let miVistaDos = storyBoard.instantiateViewController(withIdentifier: "ViewControllerWebService") as! ViewControllerWebService
+        
+        self.present(miVistaDos, animated:true, completion:nil)    }
+    
+    
+    
+    func systemUptime() -> TimeInterval {
+        var currentTime = time_t()
+        var bootTime    = timeval()
+        var mib         = [CTL_KERN, KERN_BOOTTIME]
+        
+        var size = MemoryLayout<timeval>.stride
+        let result = sysctl(&mib, u_int(mib.count), &bootTime, &size, nil, 0)
+        if result != 0 {
+            #if DEBUG
+                print("ERROR - \(#file):\(#function) - errno = "
+                    + "\(result)")
+            #endif
+            
+            return 0
+        }
+        
+        time(&currentTime)
+        let uptime = currentTime - bootTime.tv_sec
+        
+        return TimeInterval(uptime)
+    }
+  
 }
 
+extension Date {
+    
+    var currentUTCTimeZoneDate: String {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        return formatter.string(from: self)
+    }
+}
