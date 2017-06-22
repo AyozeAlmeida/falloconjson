@@ -142,8 +142,14 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
                 //                *************************
                 
                 //                *************************
-           
-                let bytes : [UInt8] = [ 0x52, 0x13, 0x00, 0x56, 0xFF, 0x00, 0x00, 0x00, 0xAA ]
+                let firma : [UInt8] = [ 0x52, 0x13]
+                let basurilla : [UInt8] = [ 0x52, 0x13, 0x00, 0x56, 0xFF, 0x00, 0x00, 0x00, 0xAA ]
+                let num = 1000
+                let str = String(num, radix: 16)
+                print("eeeee",str) // "3e8"
+                
+               
+                let bytes = firma + basurilla
                 let data = Data(bytes:bytes)
                 
                 peripheral.writeValue(data, for: charactericsx,type: CBCharacteristicWriteType.withResponse)
@@ -165,9 +171,16 @@ func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CB
             print("este es el uptime ",self.systemUptime())
             
            print("UTC",Date().currentUTCTimeZoneDate)
-            
+           
     
            let buf = [UInt8](Date().currentUTCTimeZoneDate.utf8)
+        
+            let n = 123
+            var st = String(format:"%2X", n)
+            st += " is the hexadecimal representation of \(n)"
+            // "7B is the hexadecimal representation of 123"
+            
+            
       print(buf)
         }
     
