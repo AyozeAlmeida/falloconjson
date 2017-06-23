@@ -100,7 +100,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
 
         print (peripheral)
         dispositivos.append(peripheral.identifier.uuidString)
-        peripheral.maximumWriteValueLength(for: CBCharacteristicWriteType(rawValue: 420)!)
+        peripheral.maximumWriteValueLength(for: CBCharacteristicWriteType(rawValue: 50)!)
         if peripheral.identifier.uuidString == "3340CF08-2A4C-47F4-A360-3FA75561F7A2"{
             
             //  DDEBE7A9-F336-4D8A-A406-E7F6666AE1BE
@@ -138,13 +138,11 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
         if let charactericsArr = service.characteristics{
             for charactericsx in charactericsArr
             {
+                peripheral.maximumWriteValueLength(for: CBCharacteristicWriteType(rawValue: 50)!)
                 print("esta es la caracteristica:",charactericsx)
                 peripheral.setNotifyValue(true, for: charactericsx)
             
-            
-                //                *************************
-                
-                //                *************************
+             
                 let comando : [UInt8] = [ 52]
                 let basurilla : [UInt8] = [ 52, 13, 00, 56, 00, 00, 00, 00, 00 ]
                 let prueba : [UInt8] = [ 33, 34, 35, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34  ]
@@ -172,14 +170,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
         }
     }
     
-
-  
-    
-
-    
 func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if var _ :NSData = characteristic.value as NSData? {
             peripheral.readValue(for: characteristic)
+            print (characteristic.value)
             print (characteristic)
             manager.cancelPeripheralConnection(peripheral)
             
