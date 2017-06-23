@@ -142,7 +142,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
                 print("esta es la caracteristica:",charactericsx)
                 peripheral.setNotifyValue(true, for: charactericsx)
             
-             
+             //Aaaeee
                 let comando : [UInt8] = [ 52]
                 let basurilla : [UInt8] = [ 52, 13, 00, 56, 00, 00, 00, 00, 00 ]
                 let prueba : [UInt8] = [ 33, 34, 35, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34  ]
