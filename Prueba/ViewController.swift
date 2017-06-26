@@ -18,7 +18,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonFront: UIButton!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-     var balizas: [Baliza] = []
+    var balizas: [Baliza] = []
     
     
     override func viewDidLoad() {
