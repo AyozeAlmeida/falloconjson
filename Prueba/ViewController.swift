@@ -25,10 +25,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         manager = CBCentralManager (delegate: self, queue: nil)
-       
         buttonFront.addTarget(self, action: #selector(ViewController.but(sender:)), for: .touchUpInside)
-        
-        
         
     }
 
@@ -55,7 +52,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
         if let myName = baliza.uuid {
             cell.textLabel?.text = myName
         }
-        
         return cell
     }
 
@@ -65,7 +61,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
         print("You selected cell number: \(indexPath.row)!");
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
-        let miVistaDos = storyBoard.instantiateViewController(withIdentifier: "ViewControllerWebService") as! ViewControllerWebService
+        let miVistaDos = storyBoard.instantiateViewController(withIdentifier: "WebServiceViewController") as! WebServiceViewController
         
         self.present(miVistaDos, animated:true, completion:nil)
         
@@ -141,30 +137,27 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
                 peripheral.maximumWriteValueLength(for: CBCharacteristicWriteType(rawValue: 50)!)
                 print("esta es la caracteristica:",charactericsx)
                 peripheral.setNotifyValue(true, for: charactericsx)
-            
-             //Aaaeee
+                
+                //pruebas
                 let comando : [UInt8] = [ 52]
-                let basurilla : [UInt8] = [ 52, 13, 00, 56, 00, 00, 00, 00, 00 ]
+                let basurilla : [UInt8] = [ 48, 48, 48, 48 ]
                 let prueba : [UInt8] = [ 33, 34, 35, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34  ]
                 //print ("uuuu", fraccionDatagrama(datagrama: prueba))
+                
                 print ("llllll",prueba[1...3])
                 let pruebilla = Array(prueba[1...3])
                 print ("lllll",pruebilla)
                // fraccionDatagrama(datagrama: prueba)
+                
                 let buf = [UInt8](Date().currentUTCTimeZoneDate.utf8)
-                
-                
-               
                 let bytes = comando + buf + prueba
-                
-                let data2 = Data(bytes:bytes)
+                let data = Data(bytes:basurilla)
+                //let data2 = Data(bytes:bytes)
                // let data3 = Data(bytes:prueba)
-                
+
                 print (bytes)
                 print (buf)
-                
-                
-                peripheral.writeValue(data2, for: charactericsx,type: CBCharacteristicWriteType.withResponse)
+                peripheral.writeValue(data, for: charactericsx,type: CBCharacteristicWriteType.withResponse)
               
             }
         }
@@ -173,27 +166,15 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
 func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if var _ :NSData = characteristic.value as NSData? {
             peripheral.readValue(for: characteristic)
-            print (characteristic.value)
             print (characteristic)
             manager.cancelPeripheralConnection(peripheral)
-            
             print("este es el uptime ",self.systemUptime())
-            
             print("UTC",Date().currentUTCTimeZoneDate)
-           
-    
+
             let buf = [UInt8](Date().currentUTCTimeZoneDate.utf8)
                 for value in buf {
                     print (value)
                 }
-           
-        
-           // let n = 123
-            //var st = String(format:"%2X", n)
-            //st += " is the hexadecimal representation of \(n)"
-            // "7B is the hexadecimal representation of 123"
-            
-            
             print(buf)
         }
     
@@ -202,7 +183,7 @@ func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CB
     func but(sender:AnyObject?){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
-        let miVistaDos = storyBoard.instantiateViewController(withIdentifier: "ViewControllerWebService") as! ViewControllerWebService
+        let miVistaDos = storyBoard.instantiateViewController(withIdentifier: "WebServiceViewController") as! WebServiceViewController
         
         self.present(miVistaDos, animated:true, completion:nil)    }
     

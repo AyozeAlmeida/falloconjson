@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="-578.39999999999998" y="169.56521739130437"/>
         </scene>
-        <!--View Controller Web Service-->
+        <!--Web Service View Controller-->
         <scene sceneID="Ro9-ba-5IR">
             <objects>
-                <viewController restorationIdentifier="ViewControllerWebService" storyboardIdentifier="ViewControllerWebService" id="ldw-Cz-kux" customClass="ViewControllerWebService" customModule="Prueba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="WebServiceViewController" storyboardIdentifier="WebServiceViewController" id="ldw-Cz-kux" customClass="WebServiceViewController" customModule="Prueba" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MAa-wI-opA"/>
                         <viewControllerLayoutGuide type="bottom" id="LXw-Gu-j81"/>
@@ -70,20 +70,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XV-MS-BiM">
-                                <rect key="frame" x="144" y="183" width="46" height="30"/>
+                                <rect key="frame" x="164" y="564" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tgj-MA-J92">
+                                <rect key="frame" x="67" y="42" width="240" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ce" selectionStyle="default" indentationWidth="10" id="Ja9-nr-V4C">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="BalizaCell" tableViewCell="Ja9-nr-V4C" id="Xoh-RJ-aDd">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="buttonBack" destination="4XV-MS-BiM" id="mY6-qp-7Tr"/>
+                        <outlet property="tablabalizas" destination="tgj-MA-J92" id="bPw-bb-Rqh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlZ-4g-x6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481" y="170"/>
+            <point key="canvasLocation" x="480.80000000000001" y="169.56521739130437"/>
         </scene>
     </scenes>
 </document>

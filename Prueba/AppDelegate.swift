@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        ViewControllerWebService().descarga()
+       // WebServiceViewController().descarga()
         print("handler")
         completionHandler(.newData)
         

@@ -1,0 +1,49 @@
+//
+//  PresenterWebServiceViewController.swift
+//  Prueba
+//
+//  Created by Ayoze on 26/6/17.
+//  Copyright © 2017 Ayoze. All rights reserved.
+//
+
+import Foundation
+import UIKit
+struct Baliza{
+    let uuid : String
+    let servicio : String
+    let caracterista: String
+
+}
+struct RegistrosBaliza{
+    let horaFichajes : [String]
+}
+protocol WebServiceView: NSObjectPrococol {
+    func setBalizas(balizas: [Baliza])
+
+}
+class WebServicePresenter {
+    fileprivate let balizaWebService: BalizaWebService
+    weak fileprivate var webServiceView : WebServiceViewController?
+    
+    init(balizaWebService: BalizaWebService) {
+        self.balizaWebService = balizaWebService
+    }
+    
+    func attachView(_ view: WebServiceViewController){
+        self.webServiceView = view
+    }
+
+    func detachView() {
+        self.webServiceView = nil
+    }
+    func obtenerRegistrosBalizas(){
+        self.balizaWebService.obtenerRegistroBalizas(callback: { (Baliza) in
+            self.webServiceView?.setBalizas(Balizas : balizas)
+        print (balizas)
+        
+    })
+    
+    
+
+    }
+}
