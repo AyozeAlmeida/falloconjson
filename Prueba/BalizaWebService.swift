@@ -29,6 +29,22 @@ class BalizaWebService {
             "Accept": "application/json"
         ]
         
+        
+        
+        
+       /* Alamofire.request("comentarios_addComentario", method: .post, parameters: parametros, encoding: JSONEncoding.default).responseJSON {
+            response in
+            switch response.result {
+            case .success(let value):
+             //  TODO BIEN
+            case .failure(let error):
+               // ERRORES
+            }
+            
+        }*/
+        
+        
+        
         Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             print("respuesta al POST con https")
             print("------------------")
