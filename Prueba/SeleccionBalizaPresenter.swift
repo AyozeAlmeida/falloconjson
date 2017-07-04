@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreBluetooth
 
 protocol SeleccionBalizaView: NSObjectProtocol {
     func setBalizas(balizas: [BalizaData])
@@ -19,9 +20,14 @@ class SeleccionBalizaPresenter {
    
     fileprivate let seleccionBalizaService: SeleccionBalizaService
     weak fileprivate var seleccionBalizaView : SeleccionBalizaView?
+    fileprivate var escaneado : Escaneado
+    fileprivate var firmado : Firmado
     
-    init(seleccionBalizaService: SeleccionBalizaService) {
+    init(seleccionBalizaService: SeleccionBalizaService, escaneado: Escaneado, firmado: Firmado) {
         self.seleccionBalizaService = seleccionBalizaService
+        self.escaneado = escaneado
+        self.firmado = firmado
+        
     }
     
     func attachView(_ view: SeleccionBalizaView){
@@ -37,10 +43,25 @@ class SeleccionBalizaPresenter {
             self.seleccionBalizaView?.setBalizas(balizas: balizas)
         })
     }
-    func escaneo (){
-        Escaneado().escaneaBaliza(callback: {(str) in print ("vamos",str)})
+   
+    func escan() {
+        self.escaneado.inicializar(presenter: self)
+    }
+    func perifericoEncontrado(peripheral: CBPeripheral, manager: CBCentralManager)   {
+        print("el periferico encontrado y devuelto al presenter es:..")
+        if peripheral.identifier.uuidString == "DDEBE7A9-F336-4D8A-A406-E7F6666AE1BE"{
+            print("Es el que busco")
+            self.firmado.inicializarFirmado(presenter: self, manager: manager, peripheral: peripheral)
+            
+        }
+        
     }
     
-    
+    func perifericoFirmado() {
+        
+        print ("has fichado a las 00:00:000")
+        
+        
+    }
     
 }

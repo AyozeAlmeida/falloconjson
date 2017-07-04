@@ -10,6 +10,7 @@
 		24D101D157FA217383EDF39B /* Pods_PruebaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 313A2DE7C66AFDB6D73E0C44 /* Pods_PruebaUITests.framework */; };
 		40DAB6DBE7D1740A672882D0 /* Pods_PruebaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EEDFC18E96070A3DA6FAB4 /* Pods_PruebaTests.framework */; };
 		B4ADFB3C603C0C8BEEAC8979 /* Pods_Prueba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F6F6CB2A370EED2ED492D13 /* Pods_Prueba.framework */; };
+		F7033AB51F0A648200497D59 /* Firmado.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7033AB41F0A648200497D59 /* Firmado.swift */; };
 		F71278801F05164F00266272 /* ParticionaDatagrama.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712787F1F05164F00266272 /* ParticionaDatagrama.swift */; };
 		F72CD3291EF3E27300A261B9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72CD3281EF3E27300A261B9 /* CoreBluetooth.framework */; };
 		F7467A191EFA8C6300DE4FB8 /* WebserviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7467A181EFA8C6300DE4FB8 /* WebserviceViewController.swift */; };
@@ -62,6 +63,7 @@
 		72FB804E6EE08EA27C274561 /* Pods-Prueba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba/Pods-Prueba.debug.xcconfig"; sourceTree = "<group>"; };
 		8F6F6CB2A370EED2ED492D13 /* Pods_Prueba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prueba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE218734D5F5DEB6058D191A /* Pods-PruebaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PruebaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PruebaTests/Pods-PruebaTests.release.xcconfig"; sourceTree = "<group>"; };
+		F7033AB41F0A648200497D59 /* Firmado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firmado.swift; sourceTree = "<group>"; };
 		F712787F1F05164F00266272 /* ParticionaDatagrama.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticionaDatagrama.swift; sourceTree = "<group>"; };
 		F72CD3281EF3E27300A261B9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		F72CD32A1EF4082D00A261B9 /* Prueba.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prueba.entitlements; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				F7FA51D71F024AF200FA7850 /* SeleccionBalizaCell.swift */,
 				F7FA51DB1F026D2100FA7850 /* Escaneado.swift */,
 				F712787F1F05164F00266272 /* ParticionaDatagrama.swift */,
+				F7033AB41F0A648200497D59 /* Firmado.swift */,
 			);
 			path = Prueba;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				F7FA51D41F0246DA00FA7850 /* Baliza.swift in Sources */,
 				F7FA51DC1F026D2100FA7850 /* Escaneado.swift in Sources */,
 				F7467A191EFA8C6300DE4FB8 /* WebserviceViewController.swift in Sources */,
+				F7033AB51F0A648200497D59 /* Firmado.swift in Sources */,
 				F7FA51C51F0118A300FA7850 /* BalizaWebService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

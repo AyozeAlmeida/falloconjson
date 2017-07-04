@@ -8,7 +8,7 @@ class SeleccionBalizaVC: UIViewController {
 
     @IBOutlet weak var CollectionBaliza: UICollectionView!
     
-    fileprivate let seleccionBalizaPresenter = SeleccionBalizaPresenter(seleccionBalizaService: SeleccionBalizaService())
+    fileprivate let seleccionBalizaPresenter = SeleccionBalizaPresenter(seleccionBalizaService: SeleccionBalizaService(), escaneado: Escaneado(), firmado : Firmado())
     
     var listaBalizas :
         [BalizaData] = []
@@ -27,6 +27,7 @@ class SeleccionBalizaVC: UIViewController {
         // self.buscador.delegate = self
         self.seleccionBalizaPresenter.attachView(self)
         self.seleccionBalizaPresenter.obtenerBalizas()
+        self.seleccionBalizaPresenter.escan()
        // self.seleccionBalizaPresenter.escaneo()
     }
     
