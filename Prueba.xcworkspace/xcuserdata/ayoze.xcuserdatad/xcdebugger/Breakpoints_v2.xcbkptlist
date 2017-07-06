@@ -231,7 +231,7 @@
                   moduleName = "Prueba"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayoze/Documents/Prueba/BalizaWebServicePresenter.swift"
-                  timestampString = "521042087.885346"
+                  timestampString = "521043948.772104"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -246,7 +246,7 @@
                   moduleName = "Prueba"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayoze/Documents/Prueba/BalizaWebServicePresenter.swift"
-                  timestampString = "521042087.887351"
+                  timestampString = "521043948.773402"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -730,15 +730,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"
-            timestampString = "521041735.188694"
+            timestampString = "521043948.620996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "escritura(dataString:characteristic:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -830,11 +830,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"
-            timestampString = "521041735.188694"
+            timestampString = "521043948.620996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "lectura(characteristic:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -846,11 +846,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"
-            timestampString = "521041735.188694"
+            timestampString = "521043948.620996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "lectura(characteristic:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -974,11 +974,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"
-            timestampString = "521041735.188694"
+            timestampString = "521043948.620996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "escritura(dataString:characteristic:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1034,7 +1034,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"

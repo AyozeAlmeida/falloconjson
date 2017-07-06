@@ -188,6 +188,7 @@ extension Firmado: CBPeripheralDelegate {
                     let data = Data ([33])
                     print("mando !", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
                     peripheral.writeValue(data, for: characteristic, type: CBCharacteristicWriteType.withResponse)
+                    print ("print de prueba1")
                     i = i + 1
                 }
                 if (i < splitDatagramaEscritura.count) {
@@ -195,6 +196,7 @@ extension Firmado: CBPeripheralDelegate {
                     let data = Data (bytes: splitDatagramaEscritura[i])
                     print("mando cacho", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
                     peripheral.writeValue(data, for: characteristic,type: CBCharacteristicWriteType.withResponse)
+                    print ("print de prueba2")
                     i = i + 1
                 }
                 

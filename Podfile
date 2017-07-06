@@ -7,6 +7,7 @@ target 'Prueba' do
 pod 'Alamofire' 
 pod 'SwiftyJSON' 
 pod 'ReachabilitySwift'
+pod 'SQLite.swift'
 
   target 'PruebaTests' do
     inherit! :search_paths
