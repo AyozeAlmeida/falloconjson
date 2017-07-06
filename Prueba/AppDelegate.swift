@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,14 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
         NetworkManager().backgroundCompletionHandler = completionHandler
-        
+       
         print("aqui es donde voy a descargar en segundo plano")
-        
+       
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         ReachabilityManager.shared.startMonitoring()
+        // DatabaseManagement.shared
         return true
     }
 

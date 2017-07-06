@@ -22,12 +22,13 @@ class SeleccionBalizaPresenter {
     weak fileprivate var seleccionBalizaView : SeleccionBalizaView?
     fileprivate var escaneado : Escaneado
     fileprivate var firmado : Firmado
+    var databaseManagement : DatabaseManagement
     
     init(seleccionBalizaService: SeleccionBalizaService, escaneado: Escaneado, firmado: Firmado) {
         self.seleccionBalizaService = seleccionBalizaService
         self.escaneado = escaneado
         self.firmado = firmado
-        
+        self.databaseManagement = DatabaseManagement()
     }
     
     func attachView(_ view: SeleccionBalizaView){
@@ -48,11 +49,15 @@ class SeleccionBalizaPresenter {
         self.escaneado.inicializar(presenter: self)
     }
     func perifericoEncontrado(peripheral: CBPeripheral, manager: CBCentralManager)   {
-        print("el periferico encontrado y devuelto al presenter es:..")
-        if peripheral.identifier.uuidString == "DDEBE7A9-F336-4D8A-A406-E7F6666AE1BE"{
+
+       
+        if databaseManagement.evalueBaliza(identificador:"3340CF08-2A4C-47F4-A360-3FA75561F7A2") {
             print("Es el que busco")
             self.firmado.inicializarFirmado(presenter: self, manager: manager, peripheral: peripheral)
             
+        }
+        else{
+            print ("la baliza no es nuestra")
         }
         
     }

@@ -39,7 +39,7 @@ extension Escaneado: CBCentralManagerDelegate {
         print (peripheral)
         
         //peripheral.maximumWriteValueLength(for: CBCharacteristicWriteType(rawValue: 50)!)
-        if peripheral.identifier.uuidString == "DDEBE7A9-F336-4D8A-A406-E7F6666AE1BE"{
+        if peripheral.identifier.uuidString == "3340CF08-2A4C-47F4-A360-3FA75561F7A2"{
             //3340CF08-2A4C-47F4-A360-3FA75561F7A2
             //DDEBE7A9-F336-4D8A-A406-E7F6666AE1BE
             

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/AppDelegate.swift"
-            timestampString = "519815070.474065"
+            timestampString = "520937227.4722"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "AppDelegate"
             landmarkType = "3">
          </BreakpointContent>
@@ -231,7 +231,7 @@
                   moduleName = "Prueba"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayoze/Documents/Prueba/BalizaWebServicePresenter.swift"
-                  timestampString = "520865960.154615"
+                  timestampString = "521042087.885346"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -246,7 +246,7 @@
                   moduleName = "Prueba"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayoze/Documents/Prueba/BalizaWebServicePresenter.swift"
-                  timestampString = "520865960.155841"
+                  timestampString = "521042087.887351"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -268,8 +268,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "SeleccionBalizaVC"
-            landmarkType = "3">
+            landmarkName = "listaBalizas"
+            landmarkType = "24">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -357,13 +357,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/SeleccionBalizaVC.swift"
-            timestampString = "520251241.026463"
+            timestampString = "521017642.455042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "SeleccionBalizaVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -373,27 +373,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/SeleccionBalizaVC.swift"
-            timestampString = "520782400.614435"
+            timestampString = "521017642.455042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "numberOfSections(in:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Prueba/SeleccionBalizaVC.swift"
-            timestampString = "520782400.614435"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "SeleccionBalizaVC"
             landmarkType = "4">
          </BreakpointContent>
@@ -437,11 +421,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/SeleccionBalizaService.swift"
-            timestampString = "520775131.018346"
+            timestampString = "521023040.71017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279">
+            startingLineNumber = "263"
+            endingLineNumber = "263">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -513,11 +497,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"
-            timestampString = "520854946.379336"
+            timestampString = "520953924.668624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "inicializarFirmado(presenter:manager:peripheral:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -529,11 +513,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/SeleccionBalizaPresenter.swift"
-            timestampString = "520781958.63683"
+            timestampString = "521026516.064923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "init(seleccionBalizaService:escaneado:firmado:)"
             landmarkType = "7">
             <Locations>
@@ -640,11 +624,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/SeleccionBalizaService.swift"
-            timestampString = "520776731.781538"
+            timestampString = "521023040.71017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86">
+            startingLineNumber = "70"
+            endingLineNumber = "70">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -670,11 +654,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/SeleccionBalizaPresenter.swift"
-            timestampString = "520782140.562341"
+            timestampString = "521026516.064923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "init(seleccionBalizaService:escaneado:firmado:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -734,11 +718,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/SeleccionBalizaPresenter.swift"
-            timestampString = "520782246.070017"
+            timestampString = "521026516.064923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "escan()"
             landmarkType = "7">
          </BreakpointContent>
@@ -746,15 +730,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"
-            timestampString = "520860052.977833"
+            timestampString = "521041735.188694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "escritura(dataString:characteristic:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -766,11 +750,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"
-            timestampString = "520860052.977833"
+            timestampString = "521041735.188694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "escritura(dataString:characteristic:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -782,11 +766,283 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prueba/Firmado.swift"
-            timestampString = "520860052.977833"
+            timestampString = "521037484.668802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "peripheral(_:didDiscoverCharacteristicsFor:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521041735.188694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "peripheral(_:didUpdateValueFor:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521041735.188694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "peripheral(_:didUpdateValueFor:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521041735.188694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "peripheral(_:didUpdateValueFor:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521041735.188694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "lectura(characteristic:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521041735.188694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "lectura(characteristic:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521041306.109613"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "peripheral(_:didDiscoverCharacteristicsFor:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/SeleccionBalizaPresenter.swift"
+            timestampString = "521035992.570818"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "perifericoEncontrado(peripheral:manager:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/SeleccionBalizaPresenter.swift"
+            timestampString = "521035993.826964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "perifericoEncontrado(peripheral:manager:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/SeleccionBalizaPresenter.swift"
+            timestampString = "521036022.17173"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "perifericoEncontrado(peripheral:manager:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/SeleccionBalizaPresenter.swift"
+            timestampString = "521036028.86812"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "perifericoEncontrado(peripheral:manager:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521037484.668802"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "peripheral(_:didDiscoverCharacteristicsFor:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/ParticionaDatagrama.swift"
+            timestampString = "521036217.034187"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "particionaByte(byte:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521041735.188694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "escritura(dataString:characteristic:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/ParticionaDatagrama.swift"
+            timestampString = "521037128.768185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "particionaByte(byte:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/ParticionaDatagrama.swift"
+            timestampString = "521037132.51232"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "particionaByte(byte:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/ParticionaDatagrama.swift"
+            timestampString = "521037134.016587"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "particionaByte(byte:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prueba/Firmado.swift"
+            timestampString = "521041735.188694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "escritura(dataString:characteristic:)"
             landmarkType = "7">
          </BreakpointContent>

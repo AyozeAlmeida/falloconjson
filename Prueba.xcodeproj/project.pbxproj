@@ -11,26 +11,32 @@
 		40DAB6DBE7D1740A672882D0 /* Pods_PruebaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EEDFC18E96070A3DA6FAB4 /* Pods_PruebaTests.framework */; };
 		B4ADFB3C603C0C8BEEAC8979 /* Pods_Prueba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F6F6CB2A370EED2ED492D13 /* Pods_Prueba.framework */; };
 		F7033AB51F0A648200497D59 /* Firmado.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7033AB41F0A648200497D59 /* Firmado.swift */; };
-		F71278801F05164F00266272 /* ParticionaDatagrama.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712787F1F05164F00266272 /* ParticionaDatagrama.swift */; };
+		F7033AB71F0BD8D800497D59 /* Prueba.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F7033AB61F0BD8D800497D59 /* Prueba.xcdatamodel */; };
+		F71278801F05164F00266272 /* ProtocoloParticionaDatagrama.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712787F1F05164F00266272 /* ProtocoloParticionaDatagrama.swift */; };
 		F72CD3291EF3E27300A261B9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72CD3281EF3E27300A261B9 /* CoreBluetooth.framework */; };
 		F7467A191EFA8C6300DE4FB8 /* WebserviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7467A181EFA8C6300DE4FB8 /* WebserviceViewController.swift */; };
 		F7467A1D1EFA8DC800DE4FB8 /* ReachabilitySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7467A1C1EFA8DC800DE4FB8 /* ReachabilitySwift.swift */; };
 		F7467A1F1EFA8EE600DE4FB8 /* NetworkManajer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7467A1E1EFA8EE600DE4FB8 /* NetworkManajer.swift */; };
 		F7467A211EFA8EEF00DE4FB8 /* BackEndAPIManajer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7467A201EFA8EEF00DE4FB8 /* BackEndAPIManajer.swift */; };
 		F7467A231EFA8EF900DE4FB8 /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7467A221EFA8EF900DE4FB8 /* Reachibility.swift */; };
+		F775CF9D1F0E210900242119 /* DatabaseManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775CF9C1F0E210900242119 /* DatabaseManagement.swift */; };
+		F775CF9F1F0E218C00242119 /* Baliza.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775CF9E1F0E218C00242119 /* Baliza.swift */; };
+		F775CFA11F0E3DB400242119 /* DevuelveFechor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775CFA01F0E3DB400242119 /* DevuelveFechor.swift */; };
+		F775CFA31F0E76B400242119 /* ProtocoloFechor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775CFA21F0E76B400242119 /* ProtocoloFechor.swift */; };
+		F77E16371F0CDAF800584B86 /* prueba.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = F77E16361F0CDAF800584B86 /* prueba.sqlite */; };
+		F77E16391F0CDBF800584B86 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F77E16381F0CDBF800584B86 /* libsqlite3.tbd */; };
 		F7B93F8E1EF3C68B000A83A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B93F8D1EF3C68B000A83A9 /* AppDelegate.swift */; };
 		F7B93F931EF3C68B000A83A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B93F911EF3C68B000A83A9 /* Main.storyboard */; };
 		F7B93F951EF3C68B000A83A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7B93F941EF3C68B000A83A9 /* Assets.xcassets */; };
 		F7B93F981EF3C68B000A83A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B93F961EF3C68B000A83A9 /* LaunchScreen.storyboard */; };
 		F7B93FA31EF3C68B000A83A9 /* PruebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B93FA21EF3C68B000A83A9 /* PruebaTests.swift */; };
 		F7B93FAE1EF3C68B000A83A9 /* PruebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B93FAD1EF3C68B000A83A9 /* PruebaUITests.swift */; };
-		F7FA51BD1F00F76800FA7850 /* Prueba.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51BC1F00F76800FA7850 /* Prueba.xcdatamodel */; };
 		F7FA51C11F00FDFC00FA7850 /* ProtocoloBalizaComunicacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51C01F00FDFC00FA7850 /* ProtocoloBalizaComunicacion.swift */; };
 		F7FA51C51F0118A300FA7850 /* BalizaWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51C41F0118A300FA7850 /* BalizaWebService.swift */; };
 		F7FA51C71F01285900FA7850 /* BalizaWebServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51C61F01285900FA7850 /* BalizaWebServicePresenter.swift */; };
 		F7FA51CA1F01506F00FA7850 /* SeleccionBalizaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51C91F01506F00FA7850 /* SeleccionBalizaPresenter.swift */; };
 		F7FA51CC1F01523500FA7850 /* SeleccionBalizaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51CB1F01523500FA7850 /* SeleccionBalizaService.swift */; };
-		F7FA51D41F0246DA00FA7850 /* Baliza.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51D31F0246DA00FA7850 /* Baliza.swift */; };
+		F7FA51D41F0246DA00FA7850 /* Balizastruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51D31F0246DA00FA7850 /* Balizastruct.swift */; };
 		F7FA51D81F024AF200FA7850 /* SeleccionBalizaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51D71F024AF200FA7850 /* SeleccionBalizaCell.swift */; };
 		F7FA51DA1F02510C00FA7850 /* SeleccionBalizaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51D91F02510C00FA7850 /* SeleccionBalizaVC.swift */; };
 		F7FA51DC1F026D2100FA7850 /* Escaneado.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FA51DB1F026D2100FA7850 /* Escaneado.swift */; };
@@ -64,7 +70,8 @@
 		8F6F6CB2A370EED2ED492D13 /* Pods_Prueba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prueba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE218734D5F5DEB6058D191A /* Pods-PruebaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PruebaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PruebaTests/Pods-PruebaTests.release.xcconfig"; sourceTree = "<group>"; };
 		F7033AB41F0A648200497D59 /* Firmado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firmado.swift; sourceTree = "<group>"; };
-		F712787F1F05164F00266272 /* ParticionaDatagrama.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticionaDatagrama.swift; sourceTree = "<group>"; };
+		F7033AB61F0BD8D800497D59 /* Prueba.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Prueba.xcdatamodel; path = ../../httpconalamofire/TaskManajer/TaskManajer.xcdatamodeld/Prueba.xcdatamodel; sourceTree = "<group>"; };
+		F712787F1F05164F00266272 /* ProtocoloParticionaDatagrama.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocoloParticionaDatagrama.swift; sourceTree = "<group>"; };
 		F72CD3281EF3E27300A261B9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		F72CD32A1EF4082D00A261B9 /* Prueba.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prueba.entitlements; sourceTree = "<group>"; };
 		F7467A181EFA8C6300DE4FB8 /* WebserviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebserviceViewController.swift; path = ../../httpconalamofire3/TaskManajer/WebserviceViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +79,12 @@
 		F7467A1E1EFA8EE600DE4FB8 /* NetworkManajer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManajer.swift; path = ../../httpconalamofire3/TaskManajer/NetworkManajer.swift; sourceTree = "<group>"; };
 		F7467A201EFA8EEF00DE4FB8 /* BackEndAPIManajer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackEndAPIManajer.swift; path = ../../httpconalamofire3/TaskManajer/BackEndAPIManajer.swift; sourceTree = "<group>"; };
 		F7467A221EFA8EF900DE4FB8 /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachibility.swift; path = ../../httpconalamofire3/TaskManajer/Reachibility.swift; sourceTree = "<group>"; };
+		F775CF9C1F0E210900242119 /* DatabaseManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManagement.swift; sourceTree = "<group>"; };
+		F775CF9E1F0E218C00242119 /* Baliza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Baliza.swift; sourceTree = "<group>"; };
+		F775CFA01F0E3DB400242119 /* DevuelveFechor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevuelveFechor.swift; sourceTree = "<group>"; };
+		F775CFA21F0E76B400242119 /* ProtocoloFechor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocoloFechor.swift; sourceTree = "<group>"; };
+		F77E16361F0CDAF800584B86 /* prueba.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prueba.sqlite; sourceTree = "<group>"; };
+		F77E16381F0CDBF800584B86 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F7B93F8A1EF3C68B000A83A9 /* Prueba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prueba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B93F8D1EF3C68B000A83A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B93F921EF3C68B000A83A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,13 +97,12 @@
 		F7B93FA91EF3C68B000A83A9 /* PruebaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PruebaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B93FAD1EF3C68B000A83A9 /* PruebaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaUITests.swift; sourceTree = "<group>"; };
 		F7B93FAF1EF3C68B000A83A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7FA51BC1F00F76800FA7850 /* Prueba.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Prueba.xcdatamodel; path = ../../httpconalamofire3/TaskManajer/TaskManajer.xcdatamodeld/Prueba.xcdatamodel; sourceTree = "<group>"; };
 		F7FA51C01F00FDFC00FA7850 /* ProtocoloBalizaComunicacion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocoloBalizaComunicacion.swift; sourceTree = "<group>"; };
 		F7FA51C41F0118A300FA7850 /* BalizaWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalizaWebService.swift; sourceTree = "<group>"; };
 		F7FA51C61F01285900FA7850 /* BalizaWebServicePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BalizaWebServicePresenter.swift; path = ../BalizaWebServicePresenter.swift; sourceTree = "<group>"; };
 		F7FA51C91F01506F00FA7850 /* SeleccionBalizaPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeleccionBalizaPresenter.swift; sourceTree = "<group>"; };
 		F7FA51CB1F01523500FA7850 /* SeleccionBalizaService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeleccionBalizaService.swift; sourceTree = "<group>"; };
-		F7FA51D31F0246DA00FA7850 /* Baliza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Baliza.swift; sourceTree = "<group>"; };
+		F7FA51D31F0246DA00FA7850 /* Balizastruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Balizastruct.swift; sourceTree = "<group>"; };
 		F7FA51D71F024AF200FA7850 /* SeleccionBalizaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeleccionBalizaCell.swift; sourceTree = "<group>"; };
 		F7FA51D91F02510C00FA7850 /* SeleccionBalizaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeleccionBalizaVC.swift; sourceTree = "<group>"; };
 		F7FA51DB1F026D2100FA7850 /* Escaneado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Escaneado.swift; sourceTree = "<group>"; };
@@ -101,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F77E16391F0CDBF800584B86 /* libsqlite3.tbd in Frameworks */,
 				F72CD3291EF3E27300A261B9 /* CoreBluetooth.framework in Frameworks */,
 				B4ADFB3C603C0C8BEEAC8979 /* Pods_Prueba.framework in Frameworks */,
 			);
@@ -141,6 +154,14 @@
 		F71278811F062EB600266272 /* Ble */ = {
 			isa = PBXGroup;
 			children = (
+				F7FA51CB1F01523500FA7850 /* SeleccionBalizaService.swift */,
+				F7FA51C91F01506F00FA7850 /* SeleccionBalizaPresenter.swift */,
+				F7FA51D91F02510C00FA7850 /* SeleccionBalizaVC.swift */,
+				F7FA51DB1F026D2100FA7850 /* Escaneado.swift */,
+				F7033AB41F0A648200497D59 /* Firmado.swift */,
+				F712787F1F05164F00266272 /* ProtocoloParticionaDatagrama.swift */,
+				F775CFA01F0E3DB400242119 /* DevuelveFechor.swift */,
+				F775CFA21F0E76B400242119 /* ProtocoloFechor.swift */,
 			);
 			name = Ble;
 			sourceTree = "<group>";
@@ -148,12 +169,22 @@
 		F72CD3271EF3E27300A261B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F77E16381F0CDBF800584B86 /* libsqlite3.tbd */,
 				F72CD3281EF3E27300A261B9 /* CoreBluetooth.framework */,
 				8F6F6CB2A370EED2ED492D13 /* Pods_Prueba.framework */,
 				05EEDFC18E96070A3DA6FAB4 /* Pods_PruebaTests.framework */,
 				313A2DE7C66AFDB6D73E0C44 /* Pods_PruebaUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F775CF9B1F0E1C1700242119 /* ManejoDB */ = {
+			isa = PBXGroup;
+			children = (
+				F775CF9C1F0E210900242119 /* DatabaseManagement.swift */,
+				F775CF9E1F0E218C00242119 /* Baliza.swift */,
+			);
+			name = ManejoDB;
 			sourceTree = "<group>";
 		};
 		F7B93F811EF3C68B000A83A9 = {
@@ -181,14 +212,13 @@
 		F7B93F8C1EF3C68B000A83A9 /* Prueba */ = {
 			isa = PBXGroup;
 			children = (
+				F775CF9B1F0E1C1700242119 /* ManejoDB */,
 				F71278811F062EB600266272 /* Ble */,
-				F7FA51D91F02510C00FA7850 /* SeleccionBalizaVC.swift */,
 				F72CD32A1EF4082D00A261B9 /* Prueba.entitlements */,
 				F7B93F8D1EF3C68B000A83A9 /* AppDelegate.swift */,
-				F7FA51C91F01506F00FA7850 /* SeleccionBalizaPresenter.swift */,
-				F7FA51CB1F01523500FA7850 /* SeleccionBalizaService.swift */,
 				F7FA51C61F01285900FA7850 /* BalizaWebServicePresenter.swift */,
 				F7467A181EFA8C6300DE4FB8 /* WebserviceViewController.swift */,
+				F7033AB61F0BD8D800497D59 /* Prueba.xcdatamodel */,
 				F7FA51C41F0118A300FA7850 /* BalizaWebService.swift */,
 				F7B93F911EF3C68B000A83A9 /* Main.storyboard */,
 				F7B93F941EF3C68B000A83A9 /* Assets.xcassets */,
@@ -196,15 +226,12 @@
 				F7467A1E1EFA8EE600DE4FB8 /* NetworkManajer.swift */,
 				F7467A201EFA8EEF00DE4FB8 /* BackEndAPIManajer.swift */,
 				F7467A221EFA8EF900DE4FB8 /* Reachibility.swift */,
-				F7FA51BC1F00F76800FA7850 /* Prueba.xcdatamodel */,
+				F77E16361F0CDAF800584B86 /* prueba.sqlite */,
 				F7467A1C1EFA8DC800DE4FB8 /* ReachabilitySwift.swift */,
 				F7B93F991EF3C68B000A83A9 /* Info.plist */,
 				F7FA51C01F00FDFC00FA7850 /* ProtocoloBalizaComunicacion.swift */,
-				F7FA51D31F0246DA00FA7850 /* Baliza.swift */,
+				F7FA51D31F0246DA00FA7850 /* Balizastruct.swift */,
 				F7FA51D71F024AF200FA7850 /* SeleccionBalizaCell.swift */,
-				F7FA51DB1F026D2100FA7850 /* Escaneado.swift */,
-				F712787F1F05164F00266272 /* ParticionaDatagrama.swift */,
-				F7033AB41F0A648200497D59 /* Firmado.swift */,
 			);
 			path = Prueba;
 			sourceTree = "<group>";
@@ -349,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F77E16371F0CDAF800584B86 /* prueba.sqlite in Resources */,
 				F7B93F981EF3C68B000A83A9 /* LaunchScreen.storyboard in Resources */,
 				F7B93F951EF3C68B000A83A9 /* Assets.xcassets in Resources */,
 				F7B93F931EF3C68B000A83A9 /* Main.storyboard in Resources */,
@@ -516,18 +544,22 @@
 			files = (
 				F7467A231EFA8EF900DE4FB8 /* Reachibility.swift in Sources */,
 				F7467A211EFA8EEF00DE4FB8 /* BackEndAPIManajer.swift in Sources */,
-				F7FA51BD1F00F76800FA7850 /* Prueba.xcdatamodel in Sources */,
-				F71278801F05164F00266272 /* ParticionaDatagrama.swift in Sources */,
+				F775CF9F1F0E218C00242119 /* Baliza.swift in Sources */,
+				F71278801F05164F00266272 /* ProtocoloParticionaDatagrama.swift in Sources */,
 				F7467A1F1EFA8EE600DE4FB8 /* NetworkManajer.swift in Sources */,
 				F7FA51CC1F01523500FA7850 /* SeleccionBalizaService.swift in Sources */,
+				F775CF9D1F0E210900242119 /* DatabaseManagement.swift in Sources */,
 				F7FA51CA1F01506F00FA7850 /* SeleccionBalizaPresenter.swift in Sources */,
+				F775CFA31F0E76B400242119 /* ProtocoloFechor.swift in Sources */,
+				F7033AB71F0BD8D800497D59 /* Prueba.xcdatamodel in Sources */,
 				F7467A1D1EFA8DC800DE4FB8 /* ReachabilitySwift.swift in Sources */,
+				F775CFA11F0E3DB400242119 /* DevuelveFechor.swift in Sources */,
 				F7B93F8E1EF3C68B000A83A9 /* AppDelegate.swift in Sources */,
 				F7FA51DA1F02510C00FA7850 /* SeleccionBalizaVC.swift in Sources */,
 				F7FA51D81F024AF200FA7850 /* SeleccionBalizaCell.swift in Sources */,
 				F7FA51C11F00FDFC00FA7850 /* ProtocoloBalizaComunicacion.swift in Sources */,
 				F7FA51C71F01285900FA7850 /* BalizaWebServicePresenter.swift in Sources */,
-				F7FA51D41F0246DA00FA7850 /* Baliza.swift in Sources */,
+				F7FA51D41F0246DA00FA7850 /* Balizastruct.swift in Sources */,
 				F7FA51DC1F026D2100FA7850 /* Escaneado.swift in Sources */,
 				F7467A191EFA8C6300DE4FB8 /* WebserviceViewController.swift in Sources */,
 				F7033AB51F0A648200497D59 /* Firmado.swift in Sources */,

@@ -29,28 +29,12 @@ class SeleccionBalizaService: NSObject {
         //Escaneado().escaneaBaliza(callback: {(manager) in print ("vamos",manager)})
         balizas = [BalizaData(uuid: "3340CF08-2A4C-47F4-A360-3FA75561F7A2") , BalizaData(uuid: "33550CF08-2A4C-47F4-A360-3FA75561F7A2") ]
         
-        print("este es el uptime ",self.systemUptime())
+        //print("este es el uptime ",self.systemUptime())
        // print("UTC",Date().currentUTCTimeZoneDate)
-        
+        //DatabaseManagement().queryAllProduct()
         callback(balizas)
     }
-    func systemUptime() -> TimeInterval {
-        var currentTime = time_t()
-        var bootTime = timeval()
-        var mib = [CTL_KERN, KERN_BOOTTIME]
-        var size = MemoryLayout<timeval>.stride
-        let result = sysctl(&mib, u_int(mib.count), &bootTime, &size, nil, 0)
-        if result != 0 {
-            #if DEBUG
-                print("ERROR - \(#file):\(#function) - errno = "
-                    + "\(result)")
-            #endif
-            return 0
-        }
-        time(&currentTime)
-        let uptime = currentTime - bootTime.tv_sec
-        return TimeInterval(uptime)
-    }
+
 
 }
 /*extension SeleccionBalizaService: BalizaEncontrada{

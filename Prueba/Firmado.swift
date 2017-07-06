@@ -27,11 +27,15 @@ class Firmado: NSObject  {
     var peripheral:CBPeripheral!
     var presenter: SeleccionBalizaPresenter!
     var dataStringAnterior : String = ""
+    var dataAnterior : UInt8 = 9
     var splitDatagramaEscritura: [[UInt8]] = []
     //var splitDatagramaLectura: [[UInt8]] = []
-    var datagramaLectura = ""
+    var lecturaOEscritura = false
+    var datagramaLectura : [UInt8] = []
+    var timer = Timer ()
     var paso = false;
     var i = 0
+    var characteristicAnterior: CBCharacteristic? = nil
     
     
     func inicializarFirmado(presenter: SeleccionBalizaPresenter, manager: CBCentralManager, peripheral: CBPeripheral) {
@@ -70,7 +74,11 @@ class Firmado: NSObject  {
         return TimeInterval(uptime)
     }
     
-    
+    func timeOut(){
+        print ("tiempo Agotado")
+        manager.cancelPeripheralConnection(peripheral)
+        presenter.escan()
+    }
     
     
 }
@@ -97,30 +105,27 @@ extension Firmado: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?){
         print("Looping through characteristics")
         if let charactericsArr = service.characteristics{
+            //timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.timeOut), userInfo: nil, repeats: true)
+
             for charactericsx in charactericsArr
             {
                 print("esta es la caracteristica:",charactericsx)
-            
-                peripheral.setNotifyValue(true, for: charactericsx) //mucho ojo con subcribirse a la carácteristica pq satura el micro de la baliza
-                // splitDatagramaEscritura = ParticionaDatagrama().devuelveDatagramas(text: "llllllllllllllllllllxxxxxxxxxxxxxxxxxmmmmmmmmmmmmmuuuuuuuuuuuuuuuuuuuaaaaaaaaaaaaaallllllllllllllllllllxxxxxxxxxxxxxxxxxmmmmmmmmmmmmmuuuuuuuuuuuuuuuuuuuaaaaaaaaaaaaaallllllllllllllllllllxxxxxxxxxxxxxxxxxmmmmmmmmmmmmmuuuuuuuuuuuuuuuuuuuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamuuuuuuuuuuuuuuuuuuuaaaaaaaaaaaaaallllllllllllllllllllxxxxxxxxxxxxxxxxxmmmmmmmmmmmmmuuuuuuuuuuuuuuuuuuuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaavzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
-                /*let datos = "manolitofichaenlabalizatalconelconceptocual"
-                splitDatagramaEscritura = ParticionaDatagrama().devuelveDatagramas(text: "<"+Date().currentUTCTimeZoneDate+String(datos.length)+datos)*/
-                var pruebaSecuencia = "0"
-                for a in 1...140 {
-                    pruebaSecuencia += String(a)
-                    
-                }
-                splitDatagramaEscritura = ParticionaDatagrama().devuelveDatagramas(text: pruebaSecuencia)
+                peripheral.setNotifyValue(true, for: charactericsx)
+                let datagramaFechor : [UInt8] = ProtocoloFechor().protocoloFechor(datos: [97, 98, 99, 100])
+                
+                
+                splitDatagramaEscritura = ParticionaDatagrama().devuelveByte(byte:datagramaFechor)
+                print (datagramaFechor)
                 let head = [UInt8]("$".utf8)
                 let data5 = Data (bytes:head)
                 print("\(data5 as NSData)")
-                print("mando",head)
+                print("mando inicio",head)
                 peripheral.writeValue(data5, for: charactericsx,type: CBCharacteristicWriteType.withResponse)
-                peripheral.readValue(for: charactericsx)
+
             }
         }
     }
-    
+
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         if ((error) != nil) {
             print("error cambiando notificación de estado: ");
@@ -135,91 +140,123 @@ extension Firmado: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        
+        print ("escucho")
         let dat = characteristic.value
         let dataString = String(data: dat!, encoding: String.Encoding.utf8)
+        //print ("eeoo", dataString)
         //peripheral.setNotifyValue(false, for: characteristic)
-        /*if (dataString?.characters.first == "$") {
-            lectura(dataString: dataString!, characteristic: characteristic)
-        }*/
-       
-        
+        if (dataString?.characters.first == "$") {
+            lecturaOEscritura = true
+            lectura(characteristic: characteristic)
+        }
+        if lecturaOEscritura == true {
+            lectura(characteristic: characteristic)
+        }
+      
+        if lecturaOEscritura == false && dataString != nil {
         escritura(dataString: dataString!, characteristic: characteristic)
       
-
+        }
     }
     
     
     
     func escritura (dataString: String,characteristic: CBCharacteristic){
+        
         if dataString != dataStringAnterior{
             dataStringAnterior = dataString
+            print ("escribo")
+            if (dataString.characters.first == "#"){
+                print ("desconecto")
+                //manager.cancelPeripheralConnection(peripheral)
+                lecturaOEscritura = true
+                i = 0
+            }
             if (dataString.characters.first == "+"){
-                
-                paso = true;
-                print ("recibo", dataString)
-                print ("vuelta numero", i)
-                if (i == splitDatagramaEscritura.count + 1){
+                if (dataString.characters.first == "!"){
                     print ("desconecto")
-                    manager.cancelPeripheralConnection(peripheral)
+                    //manager.cancelPeripheralConnection(peripheral)
+                    lecturaOEscritura = true
                     i = 0
                 }
+               
+                print ("recibo", dataString)
+                print ("vuelta numero", i)
                 
                 if (i == (splitDatagramaEscritura.count)){
                     //peripheral.setNotifyValue(false, for: characteristic)
-                    let data5 = Data ([33])
-                    print("mando", "\(String(describing: String(data: data5, encoding: String.Encoding.utf8)))")
-                    peripheral.writeValue(data5, for: characteristic, type: CBCharacteristicWriteType.withResponse)
-                    //usleep(300)
-                    //peripheral.readValue(for: characteristic)
-                    
+                    let data = Data ([33])
+                    print("mando !", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
+                    peripheral.writeValue(data, for: characteristic, type: CBCharacteristicWriteType.withResponse)
                     i = i + 1
                 }
-                    
-                else if (i <= splitDatagramaEscritura.count) {
+                if (i < splitDatagramaEscritura.count) {
                     splitDatagramaEscritura[i].insert(0, at:0)
-                    let data4 = Data (bytes: splitDatagramaEscritura[i])
-                    print("mando", "\(String(describing: String(data: data4, encoding: String.Encoding.utf8)))")
-                    peripheral.writeValue(data4, for: characteristic,type: CBCharacteristicWriteType.withResponse)
-                    //usleep(300)
-                    //peripheral.readValue(for: characteristic)
+                    let data = Data (bytes: splitDatagramaEscritura[i])
+                    print("mando cacho", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
+                    peripheral.writeValue(data, for: characteristic,type: CBCharacteristicWriteType.withResponse)
                     i = i + 1
                 }
                 
             }
             
         }
-        print ("eeeoo", dataString, i)
+
         
     }
     
-    func lectura (dataString: String,characteristic:CBCharacteristic){
-        if dataString.characters.first == "$" {
-            let data5 = Data ([43])
-            print("mando", "\(String(describing: String(data: data5, encoding: String.Encoding.utf8)))")
-            peripheral.writeValue(data5, for: characteristic,type: CBCharacteristicWriteType.withResponse)
-        }
-        if dataString.characters.first == "0" {
-            let tamañoDatagrama = String(dataString.characters.prefix(2))
-            
-            let tamañoFor = Int(tamañoDatagrama)
-            for a in 2...tamañoFor! {
-                datagramaLectura += dataString[a]
-                
-            }
-            let data5 = Data ([43])
-            print("mando", "\(String(describing: String(data: data5, encoding: String.Encoding.utf8)))")
-            peripheral.writeValue(data5, for: characteristic,type: CBCharacteristicWriteType.withResponse)
-            
-        }
-        if dataString.characters.first == "!" {
-            let data5 = Data ([43])
-            print("mando", "\(String(describing: String(data: data5, encoding: String.Encoding.utf8)))")
-            peripheral.writeValue(data5, for: characteristic,type: CBCharacteristicWriteType.withResponse)
-        }
-    }
+    func lectura (characteristic:CBCharacteristic){
+        print ("leo")
 
+        guard let data1 = characteristic.value else {
+            return
+        }
+
+        lecturaOEscritura = true
+        if data1[0] == 36 {
+            print (data1[0])
+            print ("tamaño", data1[1])
+            print(characteristic)
+            let data = Data ([43])
+            print("mando lectura", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
+            peripheral.writeValue(data, for: characteristic,type: CBCharacteristicWriteType.withResponse)
+            
+        }
+        if data1[0] == 0 {
+            let tamaño = data1[1]
+            let num : Int = Int(tamaño)
+            
+            
+            for s in 2...num {
+              datagramaLectura.append(data1[s])
+            }
+            print (datagramaLectura)
+            let data = Data ([43])
+            print("mando confirmación leo cacho", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
+            peripheral.writeValue(data, for: characteristic,type: CBCharacteristicWriteType.withResponse)
+            
+        }
+        print (characteristic)
+        print (data1[0])
+        if data1[0] == 33 {
+            let data = Data ([43])
+            print("mando fin lectura", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
+            peripheral.writeValue(data, for: characteristic,type: CBCharacteristicWriteType.withResponse)
+            lecturaOEscritura = false
+            print ("fin de lectura")
+           /* let head = [UInt8]("$".utf8)
+            let data2 = Data (bytes:head)
+            print("\(data2 as NSData)")
+            print("mando",head)
+            peripheral.writeValue(data2, for: characteristic,type: CBCharacteristicWriteType.withResponse)*/
+        }
+
+  
+        
+    }
 }
+
+
 
 extension String {
     
@@ -257,4 +294,5 @@ extension Date {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter.string(from: self)
 }
+
 }

@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS "balizas";
+CREATE TABLE "balizas" ("identificador" VARCHAR PRIMARY KEY  NOT NULL , "nombre" TEXT, "idConceptos" INTEGER);
