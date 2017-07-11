@@ -2,6 +2,13 @@
 //  BalizaWebService.swift
 //  Prueba
 //
+//  Created by Ayoze on 6/7/17.
+//  Copyright © 2017 Ayoze. All rights reserved.
+//
+//
+//  BalizaWebService.swift
+//  Prueba
+//
 //  Created by Ayoze on 26/6/17.
 //  Copyright © 2017 Ayoze. All rights reserved.
 //
@@ -32,16 +39,16 @@ class BalizaWebService {
         
         
         
-       /* Alamofire.request("comentarios_addComentario", method: .post, parameters: parametros, encoding: JSONEncoding.default).responseJSON {
-            response in
-            switch response.result {
-            case .success(let value):
-             //  TODO BIEN
-            case .failure(let error):
-               // ERRORES
-            }
-            
-        }*/
+        /* Alamofire.request("comentarios_addComentario", method: .post, parameters: parametros, encoding: JSONEncoding.default).responseJSON {
+         response in
+         switch response.result {
+         case .success(let value):
+         //  TODO BIEN
+         case .failure(let error):
+         // ERRORES
+         }
+         
+         }*/
         
         
         
@@ -66,9 +73,9 @@ class BalizaWebService {
         if (balizas == nil){
             callback([])
         }
-            callback(balizas)
+        callback(balizas)
         
-
+        
     }
     func getData() {
         do {

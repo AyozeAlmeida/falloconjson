@@ -69,13 +69,14 @@ class ParticionaDatagrama: NSObject {
     func particionaByte (byte: [UInt8]) ->[[UInt8]] {
         var bytes = byte
         while (bytes != []){
-            if byte.count > 17{
-                var ca = [UInt8](bytes[0...18])
+            if bytes.count > 18{
+                var ca = [UInt8](bytes[0...17])
                 ca.insert(UInt8(ca.count), at: 0)
                 cachosDatagrama.append(ca)
-                bytes = [UInt8](byte[0...bytes.count])
+                print ("este es el tamaño del datagrama", ca.count)
+                bytes = [UInt8](byte[18...bytes.count - 1])
             }else{
-                var ca = [UInt8](bytes[0...(byte.count - 1)])
+                var ca = [UInt8](bytes[0...(bytes.count - 1)])
                 ca.insert(UInt8(ca.count), at: 0)
                 cachosDatagrama.append(ca)
                 bytes = []

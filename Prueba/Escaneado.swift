@@ -9,7 +9,9 @@
 import Foundation
 import CoreBluetooth
 
-
+protocol Escanear {
+    func escanear (_ central:CBCentralManager)
+}
 
 class Escaneado: NSObject {
     
@@ -37,7 +39,8 @@ extension Escaneado: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print("lkaj")
         print (peripheral)
-        
+        self.manager.stopScan()
+        self.presenter.perifericoEncontrado(peripheral: peripheral, manager: manager)
         //peripheral.maximumWriteValueLength(for: CBCharacteristicWriteType(rawValue: 50)!)
         if peripheral.identifier.uuidString == "3340CF08-2A4C-47F4-A360-3FA75561F7A2"{
             //3340CF08-2A4C-47F4-A360-3FA75561F7A2
@@ -46,13 +49,17 @@ extension Escaneado: CBCentralManagerDelegate {
             print("Did discover peripheral", peripheral.identifier)
             
          
-            self.manager.stopScan()
-           self.presenter.perifericoEncontrado(peripheral: peripheral, manager: manager)
+
         }
     }
     func centralManager(
         _ central: CBCentralManager,
         didConnect peripheral: CBPeripheral) {
         peripheral.discoverServices(nil)
+    }
+    func escanear(_ manager: CBCentralManager){
+        print ("sigo escaneando a veee")
+        manager.scanForPeripherals(withServices: nil, options: nil)
+        
     }
 }

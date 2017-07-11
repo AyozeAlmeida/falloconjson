@@ -26,7 +26,7 @@ class Firmado: NSObject  {
     var manager: CBCentralManager!
     var peripheral:CBPeripheral!
     var presenter: SeleccionBalizaPresenter!
-    var dataStringAnterior : String = ""
+    var dataStringAnterior : UInt8 = 9
     var dataAnterior : UInt8 = 9
     var splitDatagramaEscritura: [[UInt8]] = []
     //var splitDatagramaLectura: [[UInt8]] = []
@@ -76,8 +76,9 @@ class Firmado: NSObject  {
     
     func timeOut(){
         print ("tiempo Agotado")
+        
         manager.cancelPeripheralConnection(peripheral)
-        presenter.escan()
+        presenter.escanear(self.manager)
     }
     
     
@@ -105,21 +106,22 @@ extension Firmado: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?){
         print("Looping through characteristics")
         if let charactericsArr = service.characteristics{
-            //timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.timeOut), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.timeOut), userInfo: nil, repeats: true)
 
             for charactericsx in charactericsArr
             {
                 print("esta es la caracteristica:",charactericsx)
                 peripheral.setNotifyValue(true, for: charactericsx)
-                let datagramaFechor : [UInt8] = ProtocoloFechor().protocoloFechor(datos: [97, 98, 99, 100])
+                let datagramaFechor : [UInt8] = ProtocoloFechor().protocoloFechor(datos: [97, 98, 99, 100, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97])
                 
-                
+
                 splitDatagramaEscritura = ParticionaDatagrama().devuelveByte(byte:datagramaFechor)
-                print (datagramaFechor)
+               
+                print (splitDatagramaEscritura.count)
                 let head = [UInt8]("$".utf8)
                 let data5 = Data (bytes:head)
                 print("\(data5 as NSData)")
-                print("mando inicio",head)
+                print("mando inicio $",head)
                 peripheral.writeValue(data5, for: charactericsx,type: CBCharacteristicWriteType.withResponse)
 
             }
@@ -140,48 +142,52 @@ extension Firmado: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print ("escucho")
-        let dat = characteristic.value
-        let dataString = String(data: dat!, encoding: String.Encoding.utf8)
+        
+     print ("entro")
         //print ("eeoo", dataString)
         //peripheral.setNotifyValue(false, for: characteristic)
-        if (dataString?.characters.first == "$") {
-            lecturaOEscritura = true
+        guard let data1 = characteristic.value else {
+            return
+        }
+print ("escucho", data1[0])
+        if lecturaOEscritura == false  {
+            //print ("entro a escribir")
+            escritura(dataString: data1, characteristic: characteristic)
+        }else{
             lectura(characteristic: characteristic)
         }
-        if lecturaOEscritura == true {
-            lectura(characteristic: characteristic)
-        }
+        
+
       
-        if lecturaOEscritura == false && dataString != nil {
-        escritura(dataString: dataString!, characteristic: characteristic)
-      
-        }
+
+       
+
+
+        
     }
     
     
     
-    func escritura (dataString: String,characteristic: CBCharacteristic){
+    func escritura (dataString: Data,characteristic: CBCharacteristic){
+        print (dataString[0])
+
         
-        if dataString != dataStringAnterior{
-            dataStringAnterior = dataString
             print ("escribo")
-            if (dataString.characters.first == "#"){
+            if (dataString[0] == 35){
                 print ("desconecto")
                 //manager.cancelPeripheralConnection(peripheral)
                 lecturaOEscritura = true
                 i = 0
             }
-            if (dataString.characters.first == "+"){
-                if (dataString.characters.first == "!"){
-                    print ("desconecto")
-                    //manager.cancelPeripheralConnection(peripheral)
-                    lecturaOEscritura = true
-                    i = 0
-                }
-               
-                print ("recibo", dataString)
+            if (dataString[0] == 43){
+                print ("me responde + ")
+
                 print ("vuelta numero", i)
+                print ("el datagramacompretiene", splitDatagramaEscritura.count)
+                print ("el tamaño del datagrama es", splitDatagramaEscritura[0].count)
+                print (splitDatagramaEscritura[0])
+                print (splitDatagramaEscritura[1])
+               // print (splitDatagramaEscritura[0])
                 
                 if (i == (splitDatagramaEscritura.count)){
                     //peripheral.setNotifyValue(false, for: characteristic)
@@ -189,7 +195,8 @@ extension Firmado: CBPeripheralDelegate {
                     print("mando !", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
                     peripheral.writeValue(data, for: characteristic, type: CBCharacteristicWriteType.withResponse)
                     print ("print de prueba1")
-                    i = i + 1
+                    lecturaOEscritura = true
+                    i = 0
                 }
                 if (i < splitDatagramaEscritura.count) {
                     splitDatagramaEscritura[i].insert(0, at:0)
@@ -202,7 +209,7 @@ extension Firmado: CBPeripheralDelegate {
                 
             }
             
-        }
+        
 
         
     }
@@ -229,10 +236,13 @@ extension Firmado: CBPeripheralDelegate {
             let num : Int = Int(tamaño)
             
             
-            for s in 2...num {
+            for s in 2...(num+1) {
               datagramaLectura.append(data1[s])
             }
             print (datagramaLectura)
+            let da = Data (bytes:datagramaLectura)
+            let dataString = String(data: da, encoding: String.Encoding.utf8)
+            print (dataString)
             let data = Data ([43])
             print("mando confirmación leo cacho", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
             peripheral.writeValue(data, for: characteristic,type: CBCharacteristicWriteType.withResponse)
@@ -241,11 +251,16 @@ extension Firmado: CBPeripheralDelegate {
         print (characteristic)
         print (data1[0])
         if data1[0] == 33 {
-            let data = Data ([43])
+            let data = Data ([35])
             print("mando fin lectura", "\(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
             peripheral.writeValue(data, for: characteristic,type: CBCharacteristicWriteType.withResponse)
             lecturaOEscritura = false
-            print ("fin de lectura")
+           // manager.cancelPeripheralConnection(peripheral)
+            /*let data2 = Data ([35])
+            print("mando fin lectura", "\(String(describing: String(data: data2, encoding: String.Encoding.utf8)))")
+            peripheral.writeValue(data2, for: characteristic,type: CBCharacteristicWriteType.withResponse)
+            print ("fin de lectura")*/
+            
            /* let head = [UInt8]("$".utf8)
             let data2 = Data (bytes:head)
             print("\(data2 as NSData)")

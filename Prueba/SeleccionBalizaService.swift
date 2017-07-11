@@ -9,7 +9,8 @@
 import Foundation
 import CoreBluetooth
 import UIKit
-
+import Alamofire
+import SwiftyJSON
 
 class SeleccionBalizaService: NSObject {
     var balizas: [BalizaData] = []
@@ -34,8 +35,148 @@ class SeleccionBalizaService: NSObject {
         //DatabaseManagement().queryAllProduct()
         callback(balizas)
     }
+    func obtenerRegistroBalizas(){
+        
+        
+        do{
+            try SQLiteDataStore().createTables()
+            print("Tablas creadas con exito nueva db")
+        }
+        catch {
+            print("error al crear las tablas");
+        }
+        
+        let urlstring = "http://192.168.208.254:3000/getDatos"
+        
+        let parameters : [String: Any] = [
+            "idPersona":"7654321",
+            "idDispositivo":"AYOZE",
+            "estado":"1"
+        ]
+        let headers: HTTPHeaders = [
+            "Authorization": "ayozeapikey123456==",
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(urlstring, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            print("respuesta al POST con https")
+            print("------------------")
+            let swiftyJsonVar = JSON(response.result.value!)
+            print (swiftyJsonVar)
+            print (swiftyJsonVar.count)
+            //self.deleteAllRecords()
+            var i = 0
+            
 
+            let resData = swiftyJsonVar["nsNuevos"]
+    
+            let resDataMotivos = swiftyJsonVar["mNuevos"]
+          
+            let resDataGrupos = swiftyJsonVar["gmIdNuevos"]
+            
+            let resDataEliminar = swiftyJsonVar["nsElim"]
+            print(resDataEliminar[0])
+            /*for c in 0...resDataEliminar.count {
+                do{
+                    let item = try BalizasDBManager.buscar(id: Int64(resDataEliminar[c].numberValue))
+                    try BalizasDBManager.borrar(item: item! )
+                }catch{
+                   print ("no se pudo eliminar")
+                }
+            }*/
+            let resDataMotivosEliminar = swiftyJsonVar["mElim"]
+            print (resDataMotivosEliminar[0])
+            
+            let resDataGruposEliminar = swiftyJsonVar["gmIdElim"]
+            
+            print (resDataGruposEliminar[0])
+            while i < resData.count {
+                let item = BalizaModelo(
+                    idNS: Int64(resData[i]["ns"].numberValue), nombre: resData[i]["nombre"].stringValue, idMaquina: Int64(resData[i]["idmaquinafisica"].numberValue), idMaquinaLogica: Int64(resData[i]["idmaquinalogica"].numberValue), idGMantes: Int64(resData[i]["idgmantes"].numberValue), idGMdentro: Int64(resData[i]["idgmdentro"].numberValue), idGMdespues: Int64(resData[i]["idgmdespues"].numberValue), fechorDesde: Int64(resData[i]["fechahoradesde"].numberValue), fechorHasta:Int64(resData[i]["fechahorahasta"].numberValue), idGMidantes: Int64(resData[i]["idgmidantes"].numberValue), idGMiddentro: Int64(resData[i]["idgmiddentro"].numberValue), idGMiddespues: Int64(resData[i]["idgmiddespues"].numberValue)
+                )
+                do {
+                    
+                    let balizaId = try BalizasDBManager.insertar(
+                        item: item )
 
+                    //try BalizasDBManager.borrarTabla(nombreTabla: "NSBaliza")
+
+                } catch _{}
+
+                i += 1
+            }
+            print ("motivos",resDataMotivos)
+            print ("tamañoMotivos",resDataMotivos.count)
+            var contadorMotivos = 0
+
+            while contadorMotivos < resDataMotivos.count {
+                print("variable de motivos", resDataMotivos[contadorMotivos]["nombre"].stringValue)
+                let itemMotivo = MotivoModelo(idMotivo:Int64(resDataMotivos[contadorMotivos]["idmotivo"].numberValue) , idGrupo: Int64(resDataMotivos[contadorMotivos]["idgrupomotivo"].numberValue), nombre: resDataMotivos[contadorMotivos]["nombre"].stringValue, letra: resDataMotivos[contadorMotivos]["letra"].stringValue, numero: Int64(resDataMotivos[contadorMotivos]["numero"].numberValue))
+                print ("this",itemMotivo)
+                do {
+                    let motivoId = try MotivoDBManager.insertar(item: itemMotivo)
+                    print ("la id del motivo es",motivoId)
+                }catch _ {}
+             contadorMotivos = contadorMotivos + 1
+            }
+            do{
+                let motivoArray = try MotivoDBManager.ver()
+                for item in motivoArray!{
+                    print ("motivoc",item)
+                }
+                let motivoArray2 = try BalizasDBManager.ver()
+                for item in motivoArray2!{
+                    print ("solo motivo",item)
+                }
+            }catch _ {}
+            var contadorGrupos = 0
+            
+            while contadorGrupos < resDataGrupos.count {
+                var contadorMascaras = 0
+                let mascaras = resDataGrupos[contadorGrupos]["mascara"]
+                let idgrupo = resDataGrupos[contadorGrupos]["idgrupometodoid"]
+                print ("letgrupo",idgrupo)
+                print ("mascaraCount", mascaras.count)
+                var arrayMascaras = [Int64]()
+                var arrayMascarasPermisos = [Int64]()
+                
+                while contadorMascaras < 20{
+                    print ("mascarassss", mascaras[contadorMascaras])
+                    arrayMascaras.append(Int64(mascaras[contadorMascaras]["mascaraid"].numberValue))
+                    arrayMascarasPermisos.append(Int64(mascaras[contadorMascaras]["mascarapermiso"].numberValue))
+
+                   // let itemGrupoMascara = PivotGrupoMascaraModelo(idgrupo:idgrupo, numeroMascara: mascaras.count, idmascara0: mascaras[contadorMascaras]["idmascara"])
+
+                   
+                    contadorMascaras = contadorMascaras + 1
+                }
+                 print ("arrayMascaras", arrayMascaras)
+                print (arrayMascarasPermisos)
+                let itemGrupoMascara = PivotGrupoMascaraModelo(idgrupo:Int64(idgrupo.numberValue), numeroMascara:Int64(mascaras.count), idmascara0: arrayMascaras[0],  idmascara1: arrayMascaras[1],  idmascara2: arrayMascaras[2],  idmascara3: arrayMascaras[3],  idmascara4: arrayMascaras[4],  idmascara5: arrayMascaras[5],  idmascara6: arrayMascaras[6],  idmascara7: arrayMascaras[7],  idmascara8: arrayMascaras[8],  idmascara9: arrayMascaras[9],  idmascara10: arrayMascaras[10],  idmascara11: arrayMascaras[11],  idmascara12: arrayMascaras[12],  idmascara13: arrayMascaras[13],  idmascara14: arrayMascaras[14],  idmascara15: arrayMascaras[15], idmascara16: arrayMascaras[16],  idmascara17: arrayMascaras[17],  idmascara18: arrayMascaras[18],  idmascara19: arrayMascaras[19], mascarapermiso0: arrayMascarasPermisos[0], mascarapermiso1: arrayMascarasPermisos[1], mascarapermiso2: arrayMascarasPermisos[2], mascarapermiso3: arrayMascarasPermisos[3], mascarapermiso4: arrayMascarasPermisos[4], mascarapermiso5: arrayMascarasPermisos[5], mascarapermiso6: arrayMascarasPermisos[6], mascarapermiso7: arrayMascarasPermisos[7], mascarapermiso8: arrayMascarasPermisos[8], mascarapermiso9: arrayMascarasPermisos[9], mascarapermiso10: arrayMascarasPermisos[10], mascarapermiso11: arrayMascarasPermisos[11], mascarapermiso12: arrayMascarasPermisos[12], mascarapermiso13: arrayMascarasPermisos[13], mascarapermiso14: arrayMascarasPermisos[14], mascarapermiso15: arrayMascarasPermisos[15], mascarapermiso16: arrayMascarasPermisos[16], mascarapermiso17: arrayMascarasPermisos[17], mascarapermiso18: arrayMascarasPermisos[18], mascarapermiso19: arrayMascarasPermisos[19] )
+                
+                do{
+
+                    let insertar = try GrupoMascaraDBManager.insertar(item: itemGrupoMascara)
+
+                }catch{
+                 print (error)}
+                do{
+                    let motivoArray3 = try GrupoMascaraDBManager.ver()
+                    for item in motivoArray3!{
+                        print ("solo grupomascara",item)
+                    }
+                }catch _ {}
+                contadorGrupos = contadorGrupos + 1
+            }
+
+            
+            //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+        }
+        do{
+            try GrupoMascaraDBManager.borrarTabla(nombreTabla: "PivotGrupoMascara")
+        }catch _ {}
+        
+    }
 }
 /*extension SeleccionBalizaService: BalizaEncontrada{
     func balizaEncontrada(callback:@escaping (String) -> ()) -> Void {
@@ -51,6 +192,16 @@ class SeleccionBalizaService: NSObject {
     }
     
 }*/
+/* Alamofire.request("comentarios_addComentario", method: .post, parameters: parametros, encoding: JSONEncoding.default).responseJSON {
+ response in
+ switch response.result {
+ case .success(let value):
+ //  TODO BIEN
+ case .failure(let error):
+ // ERRORES
+ }
+ 
+ }*/
 /*extension SeleccionBalizaService: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == CBManagerState.poweredOn{

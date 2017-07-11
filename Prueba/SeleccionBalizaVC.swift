@@ -28,7 +28,7 @@ class SeleccionBalizaVC: UIViewController {
         // self.buscador.delegate = self
         self.seleccionBalizaPresenter.attachView(self)
         self.seleccionBalizaPresenter.obtenerBalizas()
-        self.seleccionBalizaPresenter.escan()
+        self.seleccionBalizaPresenter.iniciarEscaneo()
        // self.seleccionBalizaPresenter.escaneo()
     }
     

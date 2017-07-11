@@ -22,13 +22,14 @@ class SeleccionBalizaPresenter {
     weak fileprivate var seleccionBalizaView : SeleccionBalizaView?
     fileprivate var escaneado : Escaneado
     fileprivate var firmado : Firmado
-    var databaseManagement : DatabaseManagement
+   // var databaseManagement : DatabaseManagement
+    var manager: CBCentralManager? 
     
     init(seleccionBalizaService: SeleccionBalizaService, escaneado: Escaneado, firmado: Firmado) {
         self.seleccionBalizaService = seleccionBalizaService
         self.escaneado = escaneado
         self.firmado = firmado
-        self.databaseManagement = DatabaseManagement()
+      //  self.databaseManagement = DatabaseManagement()
     }
     
     func attachView(_ view: SeleccionBalizaView){
@@ -43,22 +44,27 @@ class SeleccionBalizaPresenter {
         self.seleccionBalizaService.obtenerBalizas(callback: { (balizas) in
             self.seleccionBalizaView?.setBalizas(balizas: balizas)
         })
+        obtenerRegistrosBalizas()
+    }
+    func obtenerRegistrosBalizas(){
+        seleccionBalizaService.obtenerRegistroBalizas()
     }
    
-    func escan() {
+    func iniciarEscaneo() {
         self.escaneado.inicializar(presenter: self)
     }
     func perifericoEncontrado(peripheral: CBPeripheral, manager: CBCentralManager)   {
-
-       
-        if databaseManagement.evalueBaliza(identificador:"3340CF08-2A4C-47F4-A360-3FA75561F7A2") {
+        print("el periferico encontrado y devuelto al presenter es:..")
+       self.manager = manager
+        /*if databaseManagement.evalueBaliza(identificador: peripheral.identifier.uuidString) {
             print("Es el que busco")
-            self.firmado.inicializarFirmado(presenter: self, manager: manager, peripheral: peripheral)
+               //self.firmado.inicializarFirmado(presenter: self, manager: manager, peripheral: peripheral)
             
         }
         else{
+            escanear(manager)
             print ("la baliza no es nuestra")
-        }
+        }*/
         
     }
     
@@ -69,4 +75,9 @@ class SeleccionBalizaPresenter {
         
     }
     
+}
+extension SeleccionBalizaPresenter : Escanear {
+    func escanear(_ manager: CBCentralManager) {
+        escaneado.escanear(manager)
+    }
 }
